@@ -1,7 +1,8 @@
 var products = [
   {id: 1, name: 'Angular', description: 'Superheroic JavaScript MVW Framework.', price: 100},
   {id: 2, name: 'Ember', description: 'A framework for creating ambitious web applications.', price: 100},
-  {id: 3, name: 'React', description: 'A JavaScript Library for building user interfaces.', price: 100}
+  {id: 3, name: 'React', description: 'A JavaScript Library for building user interfaces.', price: 100},
+  {id: 4, name: 'Vue', description: 'A JavaScript Framework for user interfaces.', price: 110}
 ];
 
 function findProduct (productId) {
@@ -88,13 +89,18 @@ var AddProduct = Vue.extend({
   }
 });
 
-var router = new VueRouter({routes:[
-  { path: '/', component: List},
-  { path: '/product/:product_id', component: Product, name: 'product'},
-  { path: '/add-product', component: AddProduct},
-  { path: '/product/:product_id/edit', component: ProductEdit, name: 'product-edit'},
-  { path: '/product/:product_id/delete', component: ProductDelete, name: 'product-delete'}
-]});
+var router = new VueRouter(
+    {
+        mode: 'history',
+        routes:[
+          { path: '/', component: List},
+          { path: '/product/:product_id', component: Product, name: 'product'},
+          { path: '/add-product', component: AddProduct},
+          { path: '/product/:product_id/edit', component: ProductEdit, name: 'product-edit'},
+          { path: '/product/:product_id/delete', component: ProductDelete, name: 'product-delete'}
+        ]
+    }
+);
 app = new Vue({
   router:router
 }).$mount('#app')
