@@ -7,7 +7,7 @@ var products = [
 
 function findProduct(productId) {
     return products[findProductKey(productId)];
-};
+}
 
 function findProductKey(productId) {
     for (var key = 0; key < products.length; key++) {
@@ -15,7 +15,7 @@ function findProductKey(productId) {
             return key;
         }
     }
-};
+}
 
 var List = Vue.extend({
     template: '#product-list',
@@ -122,4 +122,4 @@ var router = new VueRouter(
 
 app = new Vue({
     router: router
-}).$mount('#app')
+}).$mount('#app');
